@@ -4,7 +4,7 @@ package tde02;
  * @author RAFMo
  */
 class ListaEncadeada {
-    private Celula frente;
+    Celula frente;
 
     public ListaEncadeada() {
         frente = null;
@@ -17,7 +17,7 @@ class ListaEncadeada {
     }
 
     public Integer pop() {
-        if (isEmpty()) {
+        if (vazia()) {
             return null;
         }
         Integer data = frente.data;
@@ -25,7 +25,7 @@ class ListaEncadeada {
         return data;
     }
 
-    public boolean isEmpty() {
+    public boolean vazia() {
         return frente == null;
     }
 
@@ -36,5 +36,14 @@ class ListaEncadeada {
             current = current.proximo;
         }
         System.out.println();
+    }
+    public int size() {
+        int count = 0;
+        Celula current = frente;
+        while (current != null) {
+            count++;
+            current = current.proximo;
+        }
+        return count;
     }
 }
